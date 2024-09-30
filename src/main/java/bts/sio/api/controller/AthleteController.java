@@ -9,6 +9,7 @@ import bts.sio.api.service.PaysService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @RestController
@@ -60,9 +61,9 @@ public class AthleteController {
      */
     @PutMapping("/athlete/{id}")
     public Athlete updateAthlete(@PathVariable("id") final Long id, @RequestBody Athlete athlete) {
-        Optional<Athlete> e = athleteService.getAthlete(id);
-        if(e.isPresent()) {
-            Athlete currentAthlete = e.get();
+        Optional<Athlete> a = athleteService.getAthlete(id);
+        if(a.isPresent()) {
+            Athlete currentAthlete = a.get();
 
             String nom = athlete.getNom();
             if(nom != null) {
@@ -71,6 +72,11 @@ public class AthleteController {
             String prenom = athlete.getPrenom();
             if(prenom != null) {
                 currentAthlete.setPrenom(prenom);;
+            }
+
+            LocalDate dateNaissance = athlete.getDateNaiss();
+            if(dateNaissance != null) {
+                currentAthlete.setDateNaiss(dateNaissance);
             }
 
             Pays pays = athlete.getPays();
