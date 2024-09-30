@@ -56,9 +56,9 @@ public class SportController {
      */
     @PutMapping("/sport/{id}")
     public Sport updateSport(@PathVariable("id") final Long id, @RequestBody Sport sport) {
-        Optional<Sport> e = sportService.getSport(id);
-        if(e.isPresent()) {
-            Sport currentSport = e.get();
+        Optional<Sport> s = sportService.getSport(id);
+        if(s.isPresent()) {
+            Sport currentSport = s.get();
 
             String nom = sport.getNom();
             if(nom != null) {
