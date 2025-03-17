@@ -107,4 +107,14 @@ public class AthleteController {
         athleteService.deleteAthlete(id);
     }
 
+    /**
+     * Read - Get athletes by country
+     * @param paysId The ID of the country
+     * @return A list of athletes from the specified country
+     */
+    @GetMapping("/athletes/pays/{paysId}")
+    public Iterable<Athlete> getAthletesByPays(@PathVariable("paysId") final Long paysId) {
+        return athleteService.getAthletesByPays(paysId);
+    }
+
 }
