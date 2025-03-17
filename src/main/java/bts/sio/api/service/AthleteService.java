@@ -29,4 +29,8 @@ public class AthleteService {
         Athlete savedAthlete = athleteRepository.save(athlete);
         return savedAthlete;
     }
+
+    public Iterable<Athlete> getAthletesByPays(Long paysId) {
+        return athleteRepository.findByPaysId(paysId);
+    }
 }
