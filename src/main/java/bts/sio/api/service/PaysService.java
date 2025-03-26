@@ -1,6 +1,7 @@
 package bts.sio.api.service;
 
 import bts.sio.api.model.Pays;
+import bts.sio.api.model.Pays;
 import bts.sio.api.repository.PaysRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,12 @@ public class PaysService {
 
     public Iterable<Pays> getLesPays() {
         return paysRepository.findAll();
+    }
+
+    public Pays savePays(Pays pays) {
+            if (pays.getId() == 0) {
+                pays.setId(null);
+            }
+        return paysRepository.save(pays);
     }
 }
