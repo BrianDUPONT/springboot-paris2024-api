@@ -14,9 +14,9 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .servers(List.of(
-                        new Server().url("http://localhost:9005").description("Local"),
                         new Server().url("http://172.20.177.251:8080/brianparis2024").description("Serveur interne (Lycée)"),
-                        new Server().url("https://prodtomcat.inforostand14.net/brianparis2024").description("Serveur externe (Public)")
-                ));
+                        new Server().url("https://prodtomcat.inforostand14.net/brianparis2024").description("Serveur externe (Public)"),
+                        new Server().url("http://localhost:9005").description("Local")
+                        ));
     }
 }
